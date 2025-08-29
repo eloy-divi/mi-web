@@ -58,7 +58,6 @@ export default function Header() {
         >
           <span />
           <span />
-          <span />
         </button>
 
       {/* Overlay clicable */}
@@ -84,7 +83,6 @@ export default function Header() {
           <a href="#testimonials" onClick={close}>Testimonials</a>
           <a href="#mission" onClick={close}>Mission</a>
           <a href="#archive" onClick={close}>Archive</a>
-          <a href="#contact" className="btn-contact" onClick={close}>Contact</a>
         </nav>
       </div>
     </header>

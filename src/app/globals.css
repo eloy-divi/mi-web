@@ -2,7 +2,6 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; min-height: 100%; }
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
   color: #111;
   background: #fff;
   line-height: 1.5;
@@ -18,30 +17,31 @@ body {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  gap: 16px;
+  gap: 0px 10px;
   padding: 16px 20px;
-  background: #fff;
+  background: #fff
 }
 
 /* Logo */
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;  }
 .logo-text { font-weight: 700; font-size: 18px; }
 
 /* Punto animado en el logo */
-.dot-wrap { position: relative; width: 14px; height: 14px; }
+.dot-wrap { position: relative; width: 12px; height: 12px; }
 
 /* Ambos elementos ocupan exactamente la misma posición */
 .dot, .dot-pulse {
   position: absolute;
   inset: 0;
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
   background: #000;
   transform-origin: center;
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
+  margin-top: 2px;
 }
 
 /* punto base (ligeramente más pequeño y translúcido) */
@@ -74,7 +74,7 @@ body {
   text-decoration: none;
   color: inherit;
   opacity: .9;
-  font-size: 12px;
+  font-size: 14px;
 }
 .nav-desktop a:hover { opacity: .6; }
 
@@ -83,7 +83,7 @@ body {
   display: inline-block;
   padding: 8px 16px;
   border-radius: 999px;
-  background: #000; color: #fff;
+  background: #000; color: #fff; 
   text-decoration: none; font-size: 12px;
 }
 
@@ -100,7 +100,7 @@ body {
   display: block;
 }
 
-/* barras del burger posicionadas absolutamente para centrar perfectamente */
+/* barras del burger (2 líneas) posicionadas absolutamente */
 .burger span {
   position: absolute;
   left: 6px;
@@ -108,32 +108,42 @@ body {
   height: 2px;
   border-radius: 2px;
   background: #111;
-  transition: transform .25s ease, opacity .2s ease, top .25s ease;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), top .28s cubic-bezier(.2,.8,.2,1), opacity .18s;
   transform-origin: center;
 }
 
-/* posiciones iniciales */
-.burger span:nth-child(1) { top: 6px; }
-.burger span:nth-child(2) { top: 13px; }
-.burger span:nth-child(3) { top: 20px; }
+/* posiciones iniciales: ligeramente separadas verticalmente */
+.burger span:nth-child(1) { top: 8px; }
+.burger span:nth-child(2) { top: 16px; }
 
-/* estado abierto: top de 1 y 3 a la misma línea central y rotar */
-.burger.is-open span:nth-child(1) { top: 13px; transform: rotate(45deg); }
-.burger.is-open span:nth-child(2) { opacity: 0; }
-.burger.is-open span:nth-child(3) { top: 13px; transform: rotate(-45deg); }
+/* estado abierto: ambas en la misma línea central y rotadas para formar la X */
+.burger.is-open span:nth-child(1) {
+  top: 13px;
+  transform: rotate(45deg);
+}
+.burger.is-open span:nth-child(2) {
+  top: 13px;
+  transform: rotate(-45deg);
+}
 
 /* Menú móvil (desplegable) */
 .nav-mobile {
-  position: fixed; left: 0; right: 0; top: 64px; /* altura aprox del header */
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 64px; /* ajustar si tu header tiene otra altura */
+  z-index: 60; /* <-- importante: mayor que .site-header (50) */
   background: #fff;
-  max-height: 0; overflow: hidden;
-  opacity: 0; pointer-events: none;
-  transition: max-height .3s ease, opacity .25s ease;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height .5s ease, opacity .25s ease;
   border-bottom: 1px solid #eee;
 }
 .nav-mobile.open { max-height: 100vh; opacity: 1; pointer-events: auto; }
 .nav-mobile-inner { display: grid; gap: 14px; padding: 16px 20px 22px; }
-.nav-mobile a { text-decoration: none; color: inherit; }
+.nav-mobile a { text-decoration: none; color: inherit; text-align: center; }
 
 /* Breakpoint escritorio */
 @media (min-width: 960px) {

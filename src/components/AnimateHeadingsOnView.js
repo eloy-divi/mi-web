@@ -9,7 +9,7 @@ export default function AnimateHeadingsOnView({
   selector = '[data-split-chars]', // marca qué headings quieres
   rootMargin = '0px 0px -10% 0px',
   threshold = 0.2,
-  stagger = 22, // ms entre letras
+  stagger = 50, // ms entre letras
   once = true,
 } = {}) {
   useEffect(() => {

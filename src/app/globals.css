@@ -154,6 +154,7 @@ body {
 }
 
 
+
 /* -- Animación por caracteres -------------------------------------------- */
 .char {
   display: inline-block;
@@ -172,3 +173,33 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .char, .char.active { opacity: 1; transform: none; transition: none; }
 }
+
+/* Frase entra desde la izquierda */
+.phrase {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.phrase.active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .6s ease;
+}
+
+/* Palabras dentro de cada frase (segundo stagger) */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+}
+.word.w-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s ease;
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .phrase,.phrase.active,.word,.word.w-active { opacity:1; transform:none; transition:none; }
+}
+

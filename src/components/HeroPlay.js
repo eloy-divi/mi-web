@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 // Cargamos el enhancer en lazy y solo en cliente
 const AnimateHeadingsOnClass = dynamic(
-  () => import('./AnimateHeadingsOnClass'),
+  () => import('./AnimateHeadingsOnView'),
   { ssr: false }
 );
 

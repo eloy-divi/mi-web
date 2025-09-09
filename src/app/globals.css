@@ -203,3 +203,18 @@ body {
   .phrase,.phrase.active,.word,.word.w-active { opacity:1; transform:none; transition:none; }
 }
 
+
+
+/* ===== Matrix enhancer ===== */
+.matrix-caret{
+  display:inline-block;width:0.6ch;margin-left:0.1ch;height:1em;
+  vertical-align:baseline;background:currentColor;opacity:.85;
+  animation:caretBlink 1s steps(1) infinite;
+}
+@keyframes caretBlink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+/* opcional: glow tipo matrix */
+[data-split-matrix] {
+  letter-spacing: .02em;
+  text-shadow: none;
+}
+

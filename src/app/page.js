@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import AnimateHeadingsOnView from "../components/AnimateHeadingsOnView";
 import AnimateHeadingsByPhrase from "../components/AnimateHeadingsByPhrase";
+import AnimateMatrixOnView from "../components/AnimateMatrixOnView";
 
 export default function Home() {
   return (
@@ -9,25 +10,25 @@ export default function Home() {
         <div className={styles.homeContent}>
           {/* Marca los títulos que quieres dividir/animar */}
           <h1 data-split-chars className={styles.titleHome}>Design ForAI</h1>
-          <p data-split-phrases>A creative design studio for AI companies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac est non tortor vestibulum auctor et non dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+          <p
+            data-split-matrix
+            data-matrix-speed="18"
+            data-matrix-step="2"       // fija 2 caracteres por ciclo
+            data-matrix-hold="900"
+            data-matrix-mode="random"  // (opcional, es el default)
+            // data-matrix-caret="true" // si quieres mostrar el cursor
+          >
+  A creative design studio for AI companies.
+</p>
+
         </div>
       </section>
 
-      {/* Monta el enhancer UNA vez por página.
-          Puedes cambiar el selector si quieres incluir más cosas */}
-      <AnimateHeadingsOnView
-        selector="[data-split-chars]"
-        rootMargin="0px 0px -10% 0px"
-        threshold={0.1}
-        stagger={70}
-        once
-      />
-      <AnimateHeadingsByPhrase
-        selector="[data-split-phrases]"
-        phraseStagger={100}  // intervalo entre frases
-        stagger={50} // ms entre frases, ajusta al gusto
-        once
-      />
+
+      {/* Montas los enhancers una sola vez por página */}
+      <AnimateHeadingsOnView selector="[data-split-chars]" rootMargin="0px 0px -10% 0px" threshold={0.1} stagger={70} once />
+      <AnimateHeadingsByPhrase selector="[data-split-phrases]" phraseStagger={100} stagger={70} />
+      <AnimateMatrixOnView selector="[data-split-matrix]" data-split-matrix data-matrix-speed="1000" data-matrix-step="1"/>
     </>
   );
 }

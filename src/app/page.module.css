@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /*height: 100vh;*/
   text-align: center;
 }
 .titleHome {
@@ -14,4 +14,39 @@
   font-weight: 300;
   letter-spacing: -2px;
   margin-bottom: 20px;
+}
+
+.subtitleHome {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  max-width: 600px;
+}
+
+
+.revealImage {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;     /* apertura desde el centro */
+}
+
+/* este es el que animamos, no el <img> */
+.revealTrack {
+  display: inline-block;
+  transform: scaleX(0);        /* cerrado */
+  transform-origin: center;    /* abre desde el centro */
+  transition: transform var(--reveal-duration, 1200ms)
+                       var(--reveal-easing, cubic-bezier(.2,.7,.2,1));
+}
+
+/* abierto */
+.revealImage.is-open .revealTrack {
+  transform: scaleX(1);
+}
+
+/* que la imagen ocupe su ancho normal sin deformarse */
+.revealTrack :global(img) {
+  display: block;
+  width: 100%;
+  height: auto;
 }

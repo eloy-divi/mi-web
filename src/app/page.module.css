@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*height: 100vh;*/
+  height: 100vh;
   text-align: center;
 }
 .titleHome {
@@ -27,16 +27,15 @@
 .revealImage {
   overflow: hidden;
   display: flex;
-  justify-content: center;     /* apertura desde el centro */
+  justify-content: center;
 }
 
 /* este es el que animamos, no el <img> */
 .revealTrack {
   display: inline-block;
-  transform: scaleX(0);        /* cerrado */
-  transform-origin: center;    /* abre desde el centro */
-  transition: transform var(--reveal-duration, 1200ms)
-                       var(--reveal-easing, cubic-bezier(.2,.7,.2,1));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--reveal-duration, 1200ms) var(--reveal-easing, cubic-bezier(.2,.7,.2,1));
 }
 
 /* abierto */
@@ -49,4 +48,20 @@
   display: block;
   width: 100%;
   height: auto;
+  object-fit: contain; /* evita recorte y mantiene proporción */
+}
+
+@media (max-width: 640px) {
+  .titleHome {
+    font-size: 36px;
+    line-height: 1.05;
+    letter-spacing: -0.6px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .titleHome {
+    font-size: 28px;
+  }
 }

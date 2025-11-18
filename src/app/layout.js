@@ -23,9 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={funnelDisplay.className}>
       <body>
-        <Header />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );

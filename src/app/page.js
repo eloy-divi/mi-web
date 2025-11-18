@@ -12,26 +12,11 @@ export default function Home() {
       <section id="home" className={styles.homeSection}>
         <div className={styles.homeContent}>
           {/* Marca los títulos que quieres dividir/animar */}
-          <h1 data-split-chars className={styles.titleHome}>The future is IA</h1>
+          <h1 data-split-chars className={styles.titleHome}>¡Nos vemos pronto!</h1>
           <p className={ styles.subtitleHome }
               data-split-phrases>
-  Solucuiones de publicidad creativas impulsadas por IA para tu negocio
+  Agencia de marketing y publicidad especializada en impulsar tu negocio al siguiente nivel.
 </p>
-
-        {/* Imagen con transición */}
-          <div
-            className={styles.revealImage}
-            data-reveal-image
-            style={{ "--reveal-duration": "1500ms" }} // puedes personalizar duración
-          >
-            <Image
-              src="/imagen_home.jpg"
-              alt="Imagen de inicio"
-              width={1200}
-              height={800}
-              priority
-            />
-          </div>
 
         </div>
       </section>

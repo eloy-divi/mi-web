@@ -1,14 +1,17 @@
 .homeSection {
-  /* si quieres estilos para el section */
+  min-height: 100vh;
 }
-.homeContent{
+
+.homeContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 0 24px;
   text-align: center;
 }
+
 .titleHome {
   font-size: 96px;
   font-weight: 300;
@@ -23,32 +26,10 @@
   max-width: 600px;
 }
 
-
-.revealImage {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-}
-
-/* este es el que animamos, no el <img> */
-.revealTrack {
-  display: inline-block;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform var(--reveal-duration, 1200ms) var(--reveal-easing, cubic-bezier(.2,.7,.2,1));
-}
-
-/* abierto */
-.revealImage.is-open .revealTrack {
-  transform: scaleX(1);
-}
-
-/* que la imagen ocupe su ancho normal sin deformarse */
-.revealTrack :global(img) {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* evita recorte y mantiene proporción */
+/* la subtitleHome espera a que termine la animación del título */
+.subtitleHome :global(.phrase.active),
+.subtitleHome :global(.word.w-active) {
+  transition-delay: 0.7s;
 }
 
 @media (max-width: 640px) {
@@ -57,6 +38,10 @@
     line-height: 1.05;
     letter-spacing: -0.6px;
     margin-bottom: 10px;
+  }
+
+  .subtitleHome {
+    font-size: 16px;
   }
 }
 

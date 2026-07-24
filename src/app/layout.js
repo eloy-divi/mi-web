@@ -1,6 +1,4 @@
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { funnelDisplay } from "./fonts" // ✅ este sí existe
 
 export const metadata = {

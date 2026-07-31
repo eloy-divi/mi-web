@@ -1,5 +1,5 @@
 import "./globals.css";
-import { funnelDisplay } from "./fonts" // ✅ este sí existe
+import { funnelDisplay, bricolageGrotesque, syne } from "./fonts" // ✅ este sí existe
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.eloyblanco.com"),
@@ -19,7 +19,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={funnelDisplay.className}>
+    <html
+      lang="es"
+      className={`${funnelDisplay.className} ${bricolageGrotesque.variable} ${syne.variable}`}
+    >
       <body>
         <main>{children}</main>
       </body>

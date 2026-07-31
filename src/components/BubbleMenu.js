@@ -10,35 +10,35 @@ const DEFAULT_ITEMS = [
     href: '#',
     ariaLabel: 'Home',
     rotation: -8,
-    hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' }
+    hoverStyles: { bgColor: '#3b82f6', textColor: 'var(--color-inverse)' }
   },
   {
     label: 'about',
     href: '#',
     ariaLabel: 'About',
     rotation: 8,
-    hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
+    hoverStyles: { bgColor: '#10b981', textColor: 'var(--color-inverse)' }
   },
   {
     label: 'projects',
     href: '#',
     ariaLabel: 'Documentation',
     rotation: 8,
-    hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
+    hoverStyles: { bgColor: '#f59e0b', textColor: 'var(--color-inverse)' }
   },
   {
     label: 'blog',
     href: '#',
     ariaLabel: 'Blog',
     rotation: 8,
-    hoverStyles: { bgColor: '#ef4444', textColor: '#ffffff' }
+    hoverStyles: { bgColor: '#ef4444', textColor: 'var(--color-inverse)' }
   },
   {
     label: 'contact',
     href: '#',
     ariaLabel: 'Contact',
     rotation: -8,
-    hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' }
+    hoverStyles: { bgColor: '#8b5cf6', textColor: 'var(--color-inverse)' }
   }
 ];
 
@@ -48,8 +48,8 @@ export default function BubbleMenu({
   className,
   style,
   menuAriaLabel = 'Toggle menu',
-  menuBg = '#fff',
-  menuContentColor = '#111',
+  menuBg = 'var(--color-inverse)',
+  menuContentColor = 'var(--color-primary)',
   useFixedPosition = false,
   items,
   animationEase = 'back.out(1.5)',
@@ -191,7 +191,7 @@ export default function BubbleMenu({
                     '--item-rot': `${item.rotation ?? 0}deg`,
                     '--pill-bg': menuBg,
                     '--pill-color': menuContentColor,
-                    '--hover-bg': item.hoverStyles?.bgColor || '#f3f4f6',
+                    '--hover-bg': item.hoverStyles?.bgColor || 'var(--color-secondary)',
                     '--hover-color': item.hoverStyles?.textColor || menuContentColor
                   }}
                   ref={el => {
